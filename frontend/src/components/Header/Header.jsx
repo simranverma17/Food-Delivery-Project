@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css';
 
 const Header = () => {
-  return (
+    return (
     <div className='header'> {/* lowercase to match CSS */}
         <div className="header-contents">
             <h2>Order Your Favourite Food</h2>

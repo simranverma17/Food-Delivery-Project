@@ -1,30 +1,28 @@
 import React, { useState } from 'react'
 import './Navbar.css'
-import {assets} from '../../assets/assets'
-export const Navbar = () => {
+import { assets } from '../../assets/assets'
+import { Link } from 'react-router-dom';
 
-  const [menu,setMenu] = useState("home");
+export const Navbar = ({setShowLogin}) => {
+    const[menu,setMenu]=useState("Home"); 
   return (
-    <div className = 'navbar'>
-      <img src={assets.logo} alt="" classname ="logo"/>
-      <ul className="navbar-menu">
-        <li onClick={()=>setMenu("home")}className={menu==="home" ? "active":""}>home</li>
-        <li onClick={()=>setMenu("menu")}className={menu==="menu" ? "active":""}>menu</li>
-        <li onClick={()=>setMenu("mobile-app")}className={menu==="mobile-app" ? "active":""}>mobile-app</li>
-        <li onClick={()=>setMenu("contact-us")}className={menu==="contact-us" ? "active":""}>contact us</li>
-      </ul>
-      <div className="navbar-right">
-        <img src={assets.search_icon} alt=""/>
-        <div className="navbar-search-icon">
-          <img src={assets.basket_icon} alt=""/>
-          <div className="dot"></div>
-      
-      </div>
-        <button>sign in</button>
-      </div>
-
+    <div className='navbar'>
+        <Link to='/'><img src={assets.logo} alt="" className='logo'/></Link>
+        <ul className="navbar-menu">
+           <Link to='/' onClick={()=>setMenu("Home")} className={menu==="Home"?"active":""}>Home</Link>
+            <a href='#explore-menu' onClick={()=>setMenu("Menu")} className={menu==="Menu"?"active":""}>Menu</a>
+            <a href='#app-download' onClick={()=>setMenu("Mobile-App")} className={menu==="Mobile-App"?"active":""}>Mobile-App</a>
+            <a href='#footer' onClick={()=>setMenu("Contact us")} className={menu==="Contact us"?"active":""}>Contact us</a>
+        </ul>
+        <div className="navbar-right">
+            <img src={assets.search_icon} alt="" />
+            <div className="navbar-search-icon">
+                 <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
+                 <div className="dot"></div>
+            </div>  
+            <button onClick={()=>setShowLogin(true)}>Signin</button>
+            
+        </div>
     </div>
   )
 }
-
-export default Navbar

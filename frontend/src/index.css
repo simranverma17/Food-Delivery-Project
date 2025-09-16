@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
 *{
   padding: 0;
   margin: 0;
-  box-sizing: 0;
-  font-family: Outfit;
+  box-sizing: border-box;
+  font-family: outfit;
+  scroll-behavior: smooth;
 }
-body{
+body {
   min-height: 100vh;
 }
 a{
@@ -15,7 +15,7 @@ a{
 }
 .app{
   width: 80%;
-  margin: auto;
+  margin:auto;
 }
 @keyframes fadeIn{
   0%{
